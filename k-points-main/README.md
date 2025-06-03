@@ -2,6 +2,8 @@
 
 従業員間でポイントを贈り合える社内感謝システムです。Google Sheets連携により取引履歴とポイント残高データをエクスポートできます。
 
+> **Note**: This is a dummy change to verify repository access and PR creation workflow.
+
 ## 機能
 
 - ポイント送信/受信システム

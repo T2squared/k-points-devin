@@ -20,7 +20,11 @@ export async function apiRequest(
     headers['X-Demo-User-Id'] = demoUserId;
   }
 
-  const res = await fetch(url, {
+  const requestUrl = url.startsWith('http') 
+    ? new URL(url).pathname 
+    : url;
+  
+  const res = await fetch(requestUrl, {
     method,
     headers,
     body: data ? JSON.stringify(data) : undefined,
@@ -45,7 +49,11 @@ export const getQueryFn: <T>(options: {
       headers['X-Demo-User-Id'] = demoUserId;
     }
 
-    const res = await fetch(queryKey[0] as string, {
+    const url = (queryKey[0] as string).startsWith('http') 
+      ? new URL(queryKey[0] as string).pathname 
+      : queryKey[0] as string;
+    
+    const res = await fetch(url, {
       credentials: "include",
       headers,
     });
